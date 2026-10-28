@@ -13,8 +13,7 @@
 
 If you want the visual desktop application with flowchart canvas editing, MacBook Touch Bar controls, and the **Google Gemini AI Assistant**, download the pre-built installer:
 
-👉 **[Download RAPTOR for macOS (`.dmg`)](https://drive.google.com/file/d/1VB_VENg7oHlGCi2gMGAWXErMMv-17Gst/view?usp=drivesdk)**  
-👉 **[Download Standalone App Bundle (`.zip`)](https://drive.google.com/file/d/1wluAvfnMszAmCrYFwOEBrqGiICsJfFEZ/view?usp=drivesdk)**
+👉 **[Download latest RAPTOR for macOS (`.dmg`) from Releases](../../releases/latest)** (or visit the [Releases](../../releases) tab)
 
 ---
 
