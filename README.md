@@ -13,7 +13,29 @@
 
 If you want the visual desktop application with flowchart canvas editing, MacBook Touch Bar controls, and the **Google Gemini AI Assistant**, download the pre-built installer:
 
-👉 **[Download latest RAPTOR for macOS (`.dmg`) from Releases](../../releases/latest)** (or visit the [Releases](../../releases) tab)
+👉 **[Download RAPTOR for macOS (`.dmg`)](https://github.com/CaptainCakes/Raptor-macOS/releases)** (visit the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab)
+
+### 📦 Built-in Plugins & Adding Custom Plugins
+
+The `.dmg` release comes with pre-packaged plugins already included:
+
+- **Google Gemini AI Assistant (`gemini_ai_assistant.js`)**: 1-click error diagnosis and repair, flowchart generation from English descriptions, algorithmic trace explanations, and algorithm tutor (`Cmd + Shift + G`).
+- **MacBook Pro Touch Bar (`touchbar_macbook.js`)**: Dynamic hardware execution controls, canvas modes, and interactive variable scrubbers.
+- **Math & Statistics (`sample_math_stats.js`)**: Extended mathematical and statistical functions.
+
+#### Where Plugins Live
+When you launch the app, bundled plugins are automatically copied and loaded from your user plugins directory:
+```
+~/Library/Application Support/Raptor/plugins/
+```
+
+#### How to Add New Plugins to RAPTOR
+1. Open RAPTOR and navigate to the macOS menu bar at the top.
+2. Click **Plugins** → **Open Plugins Folder** (this opens your `plugins/` folder in Finder).
+3. Drop any single-file JavaScript plugin (`.js`) into that folder.
+4. Click **Plugins** → **Reload Plugins** (or press `Cmd + Shift + P` and choose **Reload Plugins**).
+
+Your custom functions (usable in Assignment, Decision, and Loop blocks), custom Call block procedures, and toolbar buttons will become available immediately!
 
 ---
 
@@ -41,8 +63,8 @@ If you want the visual desktop application with flowchart canvas editing, MacBoo
 Clone this repository and link the CLI:
 
 ```bash
-git clone https://github.com/<your-username>/raptor-core.git
-cd raptor-core
+git clone https://github.com/CaptainCakes/Raptor-macOS.git
+cd Raptor-macOS
 npm link
 ```
 
