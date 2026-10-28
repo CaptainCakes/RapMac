@@ -23,13 +23,12 @@ If you want the visual desktop application with flowchart canvas editing, MacBoo
 2. **Mount**: Double-click the downloaded `.dmg` file for your Mac to open the installer window.
 3. **Install**: Drag **RapMac.app** into the **Applications** shortcut folder.
 4. **First-Time Launch (Bypassing macOS "Damaged" / Gatekeeper Warning)**:
-   - Because RapMac is a free, open-source community project distributed outside the Mac App Store without a paid Apple Developer subscription (\$99/year), macOS may display:  
+   - Because RapMac is a free, open-source community project distributed outside the Mac App Store without a paid Apple Developer subscription (\$99/year), macOS blocks it on first launch with:  
      > *"RapMac is damaged and can't be opened. You should move it to the Trash."*
-   - **Option 1: 1-Click Fix (No Terminal Required)**:  
-     Inside the DMG or ZIP folder, double-click **`Launch RapMac.command`**! This automatically authorizes RapMac and launches the app directly.
-   - **Option 2: System Settings**:  
-     Go to **Apple  Menu → System Settings → Privacy & Security**, scroll down to the **Security** section, and click **Open Anyway**.
-   - **Option 3: Terminal Command**:  
+   - **Recommended Fix (1-Click — No Terminal Required)**:  
+     Inside the downloaded DMG or ZIP, simply **double-click `Launch RapMac.command`**! This automatically configures macOS to allow RapMac to open.
+   - **Alternative (Terminal)**:  
+     If you prefer using Terminal, run:
      ```bash
      xattr -cr /Applications/RapMac.app
      ```
