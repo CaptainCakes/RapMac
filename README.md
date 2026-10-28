@@ -15,9 +15,26 @@ If you want the visual desktop application with flowchart canvas editing, MacBoo
 
 👉 **[Download RapMac for macOS (`.dmg`)](https://github.com/CaptainCakes/Raptor-macOS/releases)** (visit the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab)
 
+### 🚀 Desktop App Installation Guide
+
+1. **Download**: Download **`RapMac-macOS-arm64.dmg`** (or `RapMac.zip`) from the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab.
+2. **Mount**: Double-click `RapMac-macOS-arm64.dmg` to open the installer window.
+3. **Install**: Drag **RapMac.app** into the **Applications** shortcut folder.
+4. **First-Time Launch (Bypassing macOS "Damaged" / Gatekeeper Warning)**:
+   - Because RapMac is a free, open-source community project distributed outside the Mac App Store without a paid Apple Developer subscription (\$99/year), macOS may display:  
+     > *"RapMac is damaged and can't be opened. You should move it to the Trash."*
+   - **Option 1: 1-Click Fix (No Terminal Required)**:  
+     Inside the DMG or ZIP folder, double-click **`Launch RapMac.command`**! This automatically authorizes RapMac and launches the app directly.
+   - **Option 2: System Settings**:  
+     Go to **Apple  Menu → System Settings → Privacy & Security**, scroll down to the **Security** section, and click **Open Anyway**.
+   - **Option 3: Terminal Command**:  
+     ```bash
+     xattr -cr /Applications/RapMac.app
+     ```
+
 ### 📦 Built-in Plugins & Adding Custom Plugins
 
-The `.dmg` release comes with pre-packaged plugins already included:
+The installer comes with pre-packaged plugins inside the `Plugins/` folder:
 
 - **Google Gemini AI Assistant (`gemini_ai_assistant.js`)**: 1-click error diagnosis and repair, flowchart generation from English descriptions, algorithmic trace explanations, and algorithm tutor (`Cmd + Shift + G`).
 - **MacBook Pro Touch Bar (`touchbar_macbook.js`)**: Dynamic hardware execution controls, canvas modes, and interactive variable scrubbers.
