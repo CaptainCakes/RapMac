@@ -21,7 +21,6 @@ The `.dmg` release comes with pre-packaged plugins already included:
 
 - **Google Gemini AI Assistant (`gemini_ai_assistant.js`)**: 1-click error diagnosis and repair, flowchart generation from English descriptions, algorithmic trace explanations, and algorithm tutor (`Cmd + Shift + G`).
 - **MacBook Pro Touch Bar (`touchbar_macbook.js`)**: Dynamic hardware execution controls, canvas modes, and interactive variable scrubbers.
-- **Math & Statistics (`sample_math_stats.js`)**: Extended mathematical and statistical functions.
 
 #### Where Plugins Live
 When you launch the app, bundled plugins are automatically copied and loaded from your user plugins directory:
