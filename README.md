@@ -31,7 +31,7 @@ When you launch the app, bundled plugins are automatically copied and loaded fro
 #### How to Add New Plugins to RAPTOR
 1. Open RAPTOR and navigate to the macOS menu bar at the top.
 2. Click **Plugins** → **Open Plugins Folder** (this opens your `plugins/` folder in Finder).
-3. Drop any single-file JavaScript plugin (`.js`) into that folder.
+3. You will find a placeholder template (`dummy_plugin.js.example`) with examples for custom functions, subroutines, buttons, and hooks. Copy and rename it to `my_plugin.js` (must end in `.js`), add your logic, and save.
 4. Click **Plugins** → **Reload Plugins** (or press `Cmd + Shift + P` and choose **Reload Plugins**).
 
 Your custom functions (usable in Assignment, Decision, and Loop blocks), custom Call block procedures, and toolbar buttons will become available immediately!
