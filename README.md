@@ -17,8 +17,10 @@ If you want the visual desktop application with flowchart canvas editing, MacBoo
 
 ### 🚀 Desktop App Installation Guide
 
-1. **Download**: Download **`RapMac-macOS-arm64.dmg`** (or `RapMac.zip`) from the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab.
-2. **Mount**: Double-click `RapMac-macOS-arm64.dmg` to open the installer window.
+1. **Download**: Download the version of RapMac for your Mac from the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab:
+   - **Apple Silicon (M1, M2, M3, M4)**: `RapMac-macOS-arm64.dmg` (or `RapMac-macOS-arm64.zip`)
+   - **Intel Macs (Core i5, i7, i9, Xeon)**: `RapMac-macOS-x64.dmg` (or `RapMac-macOS-x64.zip`)
+2. **Mount**: Double-click the downloaded `.dmg` file for your Mac to open the installer window.
 3. **Install**: Drag **RapMac.app** into the **Applications** shortcut folder.
 4. **First-Time Launch (Bypassing macOS "Damaged" / Gatekeeper Warning)**:
    - Because RapMac is a free, open-source community project distributed outside the Mac App Store without a paid Apple Developer subscription (\$99/year), macOS may display:  
