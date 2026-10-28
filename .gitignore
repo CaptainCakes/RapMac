@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Build outputs & Installers (Use GitHub Releases for large binaries)
+*.dmg
+*.zip
+*.tar.gz
+dist/
+build/
+out/
+
+# Logs & Environment
+*.log
+.env
+.env.local

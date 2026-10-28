@@ -1,0 +1,29 @@
+{
+  "name": "raptor-core",
+  "version": "3.0.0",
+  "description": "Headless RAPTOR Flowchart Interpreter, Binary .rap Parser & CLI Engine",
+  "main": "index.js",
+  "bin": {
+    "raptor": "./cli.js"
+  },
+  "scripts": {
+    "test": "node test_core_engine.js",
+    "start": "node cli.js",
+    "eval": "node cli.js eval"
+  },
+  "keywords": [
+    "raptor",
+    "flowchart",
+    "interpreter",
+    "ast",
+    "parser",
+    "cli",
+    "algorithms",
+    "education"
+  ],
+  "author": "RAPTOR Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
