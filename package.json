@@ -1,9 +1,10 @@
 {
-  "name": "raptor-core",
+  "name": "rapmac-core",
   "version": "3.0.0",
-  "description": "Headless RAPTOR Flowchart Interpreter, Binary .rap Parser & CLI Engine",
+  "description": "Headless RapMac Flowchart Interpreter, Binary .rap Parser & CLI Engine",
   "main": "index.js",
   "bin": {
+    "rapmac": "./cli.js",
     "raptor": "./cli.js"
   },
   "scripts": {
@@ -12,7 +13,7 @@
     "eval": "node cli.js eval"
   },
   "keywords": [
-    "raptor",
+    "rapmac",
     "flowchart",
     "interpreter",
     "ast",
@@ -21,7 +22,13 @@
     "algorithms",
     "education"
   ],
-  "author": "RAPTOR Team",
+  "author": "RapMac Team",
+  "contributors": [
+    "Martin Carlisle",
+    "Terry Wilson",
+    "Jeff Humphries",
+    "Jason Moore"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"

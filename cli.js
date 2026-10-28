@@ -10,7 +10,7 @@
  *   raptor test
  *
  * @license MIT
- * @author RAPTOR Team
+ * @author RapMac Team
  */
 
 'use strict';
@@ -19,7 +19,7 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const {
-  RaptorInterpreter,
+  RapMacInterpreter,
   RapBinaryParser,
   SAMPLES
 } = require('./index');
@@ -28,15 +28,15 @@ const ARGS = process.argv.slice(2);
 
 function printHelp() {
   console.log(`
-RAPTOR Core Flowchart Engine & CLI (v3.0.0)
+RapMac Core Flowchart Engine & CLI (v3.0.0)
 
 USAGE:
-  raptor <command> [options]
+  rapmac <command> [options]
 
 COMMANDS:
   run <file.rap | sample>      Execute a flowchart interactively in terminal
   parse <file.rap> [--json]    Inspect and parse a binary .rap flowchart file
-  eval "<expression>"          Evaluate a RAPTOR mathematical/string expression
+  eval "<expression>"          Evaluate a mathematical/string expression
   test                         Run the core engine verification test suites
   help, -h, --help             Display this help message
 
@@ -46,11 +46,11 @@ BUILTIN SAMPLES:
   lab5                         Grading algorithm with validation loop
 
 EXAMPLES:
-  raptor run template.rap
-  raptor run asig7
-  raptor parse template.rap --json
-  raptor eval "sqrt(144) + 2^3"
-  raptor test
+  rapmac run template.rap
+  rapmac run asig7
+  rapmac parse template.rap --json
+  rapmac eval "sqrt(144) + 2^3"
+  rapmac test
 `);
 }
 
@@ -59,7 +59,7 @@ function handleEval(expr) {
     console.error('Error: Please provide an expression to evaluate.');
     process.exit(1);
   }
-  const interpreter = new RaptorInterpreter();
+  const interpreter = new RapMacInterpreter();
   try {
     const result = interpreter.evaluate(expr);
     console.log(`\nExpression: ${expr}`);
@@ -91,7 +91,7 @@ function handleParse(filePath, asJson) {
     }
 
     console.log(`\n======================================================`);
-    console.log(`RAPTOR File Analysis: ${path.basename(absPath)}`);
+    console.log(`RapMac File Analysis: ${path.basename(absPath)}`);
     console.log(`======================================================`);
     console.log(`File Size:       ${(buf.length / 1024).toFixed(2)} KB`);
     console.log(`Main Tab Nodes:  ${parsed.nodes ? parsed.nodes.length : 0}`);
@@ -135,7 +135,7 @@ function handleRun(target) {
       flowchart = RapBinaryParser.parse(buf);
       sourceName = path.basename(absPath);
     } catch (err) {
-      console.error(`Failed to parse RAPTOR file: ${err.message}`);
+      console.error(`Failed to parse flowchart file: ${err.message}`);
       process.exit(1);
     }
   }
@@ -170,7 +170,7 @@ function handleRun(target) {
     }
   });
 
-  const interpreter = new RaptorInterpreter({
+  const interpreter = new RapMacInterpreter({
     speedMs: 10,
     onConsoleOutput: (text, type) => {
       if (type === 'clear') {
@@ -178,7 +178,7 @@ function handleRun(target) {
       } else if (type === 'error') {
         console.error(`[ERROR] ${text}`);
       } else if (type === 'system') {
-        console.log(`[RAPTOR] ${text}`);
+        console.log(`[RapMac] ${text}`);
       } else {
         process.stdout.write(text + '\n');
       }
@@ -237,11 +237,11 @@ function printSummary(interpreter) {
 }
 
 function handleTest() {
-  console.log(`Running RAPTOR Core Verification Suite...\n`);
+  console.log(`Running RapMac Core Verification Suite...\n`);
   try {
     require('./verify_raptor_syntax_semantics.js');
     require('./verify_pass2_advanced.js');
-    console.log(`\n✓ All RAPTOR core engine tests passed with 100% success!\n`);
+    console.log(`\n✓ All RapMac core engine tests passed with 100% success!\n`);
   } catch (err) {
     console.error(`\n✗ Test suite failed:`, err);
     process.exit(1);
@@ -278,7 +278,7 @@ switch (command) {
     if (fs.existsSync(path.resolve(command))) {
       handleRun(command);
     } else {
-      console.error(`Unknown command: "${command}". Run "raptor --help" for usage.`);
+      console.error(`Unknown command: "${command}". Run "rapmac --help" for usage.`);
       process.exit(1);
     }
     break;

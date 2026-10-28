@@ -1,19 +1,19 @@
-# RAPTOR Core Flowchart Engine & CLI
+# RapMac Core Flowchart Engine & CLI
 
 > **Headless Flowchart Interpreter, AST Runner, Binary `.rap` Parser & Command-Line Interface**
 
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D16.0.0-339933?logo=node.js)](https://nodejs.org)
 [![Tests](https://img.shields.io/badge/Tests-100%25%20Passing-brightgreen)](test_core_engine.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)](https://github.com/CaptainCakes/Raptor-macOS)
 
 ---
 
-## Looking for the macOS Desktop Application?
+## Looking for the RapMac Desktop Application for macOS?
 
 If you want the visual desktop application with flowchart canvas editing, MacBook Touch Bar controls, and the **Google Gemini AI Assistant**, download the pre-built installer:
 
-👉 **[Download RAPTOR for macOS (`.dmg`)](https://github.com/CaptainCakes/Raptor-macOS/releases)** (visit the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab)
+👉 **[Download RapMac for macOS (`.dmg`)](https://github.com/CaptainCakes/Raptor-macOS/releases)** (visit the [Releases](https://github.com/CaptainCakes/Raptor-macOS/releases) tab)
 
 ### 📦 Built-in Plugins & Adding Custom Plugins
 
@@ -25,11 +25,11 @@ The `.dmg` release comes with pre-packaged plugins already included:
 #### Where Plugins Live
 When you launch the app, bundled plugins are automatically copied and loaded from your user plugins directory:
 ```
-~/Library/Application Support/Raptor/plugins/
+~/Library/Application Support/RapMac/plugins/
 ```
 
-#### How to Add New Plugins to RAPTOR
-1. Open RAPTOR and navigate to the macOS menu bar at the top.
+#### How to Add New Plugins to RapMac
+1. Open RapMac and navigate to the macOS menu bar at the top.
 2. Click **Plugins** → **Open Plugins Folder** (this opens your `plugins/` folder in Finder).
 3. You will find a placeholder template (`dummy_plugin.js.example`) with examples for custom functions, subroutines, buttons, and hooks. Copy and rename it to `my_plugin.js` (must end in `.js`), add your logic, and save.
 4. Click **Plugins** → **Reload Plugins** (or press `Cmd + Shift + P` and choose **Reload Plugins**).
@@ -40,19 +40,19 @@ Your custom functions (usable in Assignment, Decision, and Loop blocks), custom 
 
 ## Overview
 
-**RAPTOR Core Engine** is a high-performance, headless execution engine and parser for RAPTOR flowcharts. Designed as a standalone Node.js library and CLI tool, it allows developers, educators, and automated grading pipelines to parse, analyze, and execute RAPTOR flowcharts without requiring a GUI.
+**RapMac Core Engine** is a high-performance, headless execution engine and parser for algorithmic flowcharts. Designed as a standalone Node.js library and CLI tool, it allows developers, educators, and automated grading pipelines to parse, analyze, and execute flowcharts without requiring a GUI.
 
 ### Key Capabilities
-- **Binary `.rap` Parser & Serializer**: Native binary NRBF (Net Data Contract / BinaryFormatter) parser to load and inspect `.rap` files created by RAPTOR.
-- **AST Interpreter**: Full abstract syntax tree interpreter supporting all standard RAPTOR flowchart constructs:
+- **Binary `.rap` Parser & Serializer**: Native binary NRBF parser to load, inspect, and generate `.rap` flowchart files.
+- **AST Interpreter**: Full abstract syntax tree interpreter supporting all standard flowchart constructs:
   - **Inputs & Outputs** (with interactive terminal I/O and piped stream buffering)
   - **Assignments** & Expression Evaluation
   - **Selections** (two-way conditional branches)
   - **Loops** (pre-test, post-test, and middle-test loop iteration)
   - **Subcharts & Procedures** (modular subroutines with call-by-value and call-by-reference parameter passing)
-- **1D & 2D Arrays**: Full 1-based indexing semantics, multidimensional arrays (`arr[i]`, `grid[r, c]`), and dynamic auto-expansion matching classic RAPTOR.
-- **Rich Math & String Builtins**: Standard RAPTOR functions including `sqrt`, `abs`, `log`, `sin`, `cos`, `tan`, `floor`, `ceiling`, `round`, `length_of`, and random number generation (`random`).
-- **Interactive CLI**: Fast command-line interface to execute flowcharts, inspect `.rap` files as JSON, or evaluate RAPTOR expressions directly from the terminal.
+- **1D & 2D Arrays**: Full 1-based indexing semantics, multidimensional arrays (`arr[i]`, `grid[r, c]`), and dynamic auto-expansion.
+- **Rich Math & String Builtins**: Functions including `sqrt`, `abs`, `log`, `sin`, `cos`, `tan`, `floor`, `ceiling`, `round`, `length_of`, and random number generation (`random`).
+- **Interactive CLI**: Fast command-line interface to execute flowcharts, inspect `.rap` files as JSON, or evaluate expressions directly from the terminal.
 
 ---
 
@@ -79,39 +79,39 @@ Run any `.rap` file or built-in sample interactively:
 
 ```bash
 # Run a binary flowchart file
-raptor run MyFlowchart.rap
+rapmac run MyFlowchart.rap
 
 # Run a built-in sample algorithm
-raptor run asig7    # Shopping Cart with loop accumulator and tax
-raptor run asig6    # Modular calculator with subcharts
-raptor run lab5     # Grading logic with input validation
+rapmac run asig7    # Shopping Cart with loop accumulator and tax
+rapmac run asig6    # Modular calculator with subcharts
+rapmac run lab5     # Grading logic with input validation
 ```
 
 Piped input streams are automatically supported for non-interactive automation:
 ```bash
-printf "10\n5\n1\n" | raptor run asig6
+printf "10\n5\n1\n" | rapmac run asig6
 ```
 
 #### Inspect and Parse a `.rap` File
 View the tab structure, subcharts, and node statistics of any `.rap` file:
 
 ```bash
-raptor parse template.rap
+rapmac parse template.rap
 ```
 
 Output as structured JSON AST:
 ```bash
-raptor parse template.rap --json
+rapmac parse template.rap --json
 ```
 
-#### Evaluate RAPTOR Expressions
-Evaluate any RAPTOR mathematical or string expression from the terminal:
+#### Evaluate Expressions
+Evaluate mathematical or string expressions from the terminal:
 
 ```bash
-raptor eval "sqrt(144) + 2^3"
+rapmac eval "sqrt(144) + 2^3"
 # Output: Result: 20 (number)
 
-raptor eval 'Length_Of("Algorithm Design")'
+rapmac eval 'Length_Of("Algorithm Design")'
 # Output: Result: 16 (number)
 ```
 
@@ -119,7 +119,7 @@ raptor eval 'Length_Of("Algorithm Design")'
 Verify the complete interpreter and parser against the full test suite:
 
 ```bash
-raptor test
+rapmac test
 # or: npm test
 ```
 
@@ -127,11 +127,11 @@ raptor test
 
 ## Programmatic API (Node.js)
 
-You can embed the RAPTOR engine directly into your JavaScript or TypeScript backend services, grading scripts, or custom applications:
+You can embed the RapMac engine directly into your JavaScript or TypeScript backend services, grading scripts, or custom applications:
 
 ```javascript
 const fs = require('fs');
-const { RaptorInterpreter, RapBinaryParser } = require('raptor-core');
+const { RapMacInterpreter, RapBinaryParser } = require('rapmac-core');
 
 // 1. Parse a binary .rap file into an AST
 const fileBuffer = fs.readFileSync('algorithm.rap');
@@ -140,10 +140,10 @@ const flowchart = RapBinaryParser.parse(fileBuffer);
 console.log('Flowchart Tabs:', flowchart.tabs.map(t => t.name));
 
 // 2. Initialize the Interpreter
-const interpreter = new RaptorInterpreter({
+const interpreter = new RapMacInterpreter({
   speedMs: 0, // 0 = instantaneous headless execution
   onConsoleOutput: (text, type) => {
-    console.log(`[RAPTOR OUT] ${text}`);
+    console.log(`[RapMac OUT] ${text}`);
   },
   onInputRequest: (prompt, variableName, callback) => {
     // Provide automated inputs for testing or grading
@@ -164,7 +164,7 @@ interpreter.start(flowchart, false);
 
 ---
 
-## Supported RAPTOR Language Specification
+## Supported Flowchart Language Specification
 
 ### Statements & Blocks
 | Block Type | Purpose | Example |
@@ -184,25 +184,24 @@ interpreter.start(flowchart, false);
 
 ---
 
-## Verification & Testing
+## Credits & Acknowledgements
 
-The core engine is covered by an automated test suite verifying syntax, expressions, 1D/2D arrays, subchart parameter passing, and binary serialization:
+**RapMac** is built upon the pioneering visual programming and algorithmic flowchart foundation of **RAPTOR** (Rapid Algorithmic Prototyping Tool for Ordered Reasoning), originally designed and created by:
+- **Martin Carlisle**
+- **Terry Wilson**
+- **Jeff Humphries**
+- **Jason Moore**
 
-```bash
-node test_core_engine.js
-```
+We express our sincere gratitude to Martin Carlisle and the original team for their landmark contributions to computer science education.
 
-- **Pass 1: Syntax & Semantics**: Arithmetic precedence, comparison operators, string concatenation, case-insensitivity.
-- **Pass 2: Advanced Engine**: Array manipulation, matrix indexing, nested loops, procedure scopes.
-- **Pass 3: Serialization**: Binary .rap stream parsing and AST reconstruction.
-- **Pass 4: End-to-End AST Execution**: Multi-step accumulator and loop execution.
+> *Disclaimer: RapMac is an independent software project developed and maintained by the RapMac Team. It is not affiliated with, endorsed by, or sponsored by the original RAPTOR team or the US Air Force Academy.*
 
 ---
 
 ## Repository Structure
 
 ```
-raptor-core/
+rapmac-core/
 ├── index.js                  # Main library entry point
 ├── cli.js                    # Executable CLI runner
 ├── interpreter.js            # Core AST execution engine & expression evaluator
@@ -211,9 +210,9 @@ raptor-core/
 ├── test_core_engine.js       # Comprehensive test runner
 ├── verify_raptor_syntax_semantics.js # Expression & operator test suite
 ├── verify_pass2_advanced.js  # Arrays, scope, and procedure test suite
-├── template.rap              # Sample binary RAPTOR flowchart
+├── template.rap              # Sample binary flowchart
 ├── package.json              # Package metadata and CLI binary definition
-├── LICENSE                   # MIT License
+├── LICENSE                   # MIT License with original team attribution
 └── README.md                 # Project documentation
 ```
 
@@ -221,4 +220,5 @@ raptor-core/
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). Built upon the educational foundation of RAPTOR created by Martin Carlisle and the original RAPTOR team.
+This project is licensed under the [MIT License](LICENSE).  
+Copyright (c) 2026 RapMac Team. Portions based on the educational architecture by Martin Carlisle and original contributors.

@@ -1,5 +1,5 @@
 /**
- * RAPTOR Flowchart Runtime & Expression Engine
+ * RapMac Flowchart Runtime & Expression Engine
  * Supports:
  * - Step-by-step and continuous execution
  * - Speed control
@@ -7,13 +7,13 @@
  * - Variable watch inspector (scalars, 1D & 2D arrays)
  * - Master console with Clear_Console
  * - Interactive input prompt dialog
- * - Complete RAPTOR math, string, and relational expressions
- * - Complete RAPTORGraph procedures and query functions
+ * - Complete math, string, and relational expressions
+ * - Complete RapMacGraph procedures and query functions
  * - Keyboard & mouse query functions & procedures
  * - 1-based arrays with auto-initialization to 0
  */
 
-const RAPTOR_COLORS = [
+const RAPMAC_COLORS = [
   '#000000', // 0: Black
   '#000080', // 1: Blue
   '#008000', // 2: Green
@@ -31,6 +31,8 @@ const RAPTOR_COLORS = [
   '#FFFF00', // 14: Yellow
   '#FFFFFF', // 15: White
 ];
+
+const RAPTOR_COLORS = RAPMAC_COLORS;
 
 const COLOR_NAMES_MAP = {
   black: 0,
@@ -206,7 +208,7 @@ function raptorPowermod(base, exp, mod) {
   }
 }
 
-class RaptorInterpreter {
+class RapMacInterpreter {
   constructor(options = {}) {
     this.options = options;
     this.variables = {}; // { varName: value }
@@ -218,11 +220,11 @@ class RaptorInterpreter {
     this.activeNodeId = null;
     this.currentTab = 'main';
 
-    // RAPTORGraph State
+    // RapMacGraph State
     this.graphOpen = false;
     this.graphWidth = 600;
     this.graphHeight = 400;
-    this.graphTitle = 'RAPTORGraph';
+    this.graphTitle = 'RapMacGraph';
     this.graphFontSize = 14;
     this.graphPixels = null; // Uint8Array or mock matrix
     this.mouseX = 0;
@@ -1191,7 +1193,7 @@ class RaptorInterpreter {
         this.graphOpen = true;
         this.graphWidth = w;
         this.graphHeight = h;
-        this.onGraphWindow('open', { width: w, height: h, title: 'RAPTORGraph' });
+        this.onGraphWindow('open', { width: w, height: h, title: 'RapMacGraph' });
         break;
       }
 
@@ -1527,14 +1529,27 @@ class RaptorInterpreter {
   }
 }
 
+const RaptorInterpreter = RapMacInterpreter;
+
 if (typeof module !== 'undefined') {
-  module.exports = { RaptorInterpreter, isBuiltinProcedure, parseCallStatement, RAPTOR_COLORS, COLOR_NAMES_MAP, BUILTIN_PROCEDURES_INFO };
+  module.exports = {
+    RapMacInterpreter,
+    RaptorInterpreter,
+    isBuiltinProcedure,
+    parseCallStatement,
+    RAPMAC_COLORS,
+    RAPTOR_COLORS,
+    COLOR_NAMES_MAP,
+    BUILTIN_PROCEDURES_INFO
+  };
 }
 
 if (typeof window !== 'undefined') {
+  window.RapMacInterpreter = RapMacInterpreter;
   window.RaptorInterpreter = RaptorInterpreter;
   window.isBuiltinProcedure = isBuiltinProcedure;
   window.parseCallStatement = parseCallStatement;
+  window.RAPMAC_COLORS = RAPMAC_COLORS;
   window.RAPTOR_COLORS = RAPTOR_COLORS;
   window.COLOR_NAMES_MAP = COLOR_NAMES_MAP;
   window.BUILTIN_PROCEDURES_INFO = BUILTIN_PROCEDURES_INFO;

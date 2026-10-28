@@ -1,5 +1,5 @@
 /**
- * RAPTOR Core Engine Verification Test Suite
+ * RapMac Core Engine Verification Test Suite
  * Runs all syntax, semantic, array, procedure, and flowchart execution tests.
  */
 
@@ -7,10 +7,10 @@
 
 const assert = require('assert');
 const fs = require('fs');
-const { RaptorInterpreter, RapBinaryParser, SAMPLES } = require('./index');
+const { RapMacInterpreter, RapBinaryParser, SAMPLES } = require('./index');
 
 console.log('================================================================');
-console.log('RAPTOR CORE ENGINE VERIFICATION SUITE');
+console.log('RAPMAC CORE ENGINE VERIFICATION SUITE');
 console.log('================================================================\n');
 
 // 1. Run Syntax & Semantics
@@ -37,7 +37,7 @@ const inputs = ['30', 'si', '20', 'no'];
 let inputIdx = 0;
 let outputLogs = [];
 
-const interpreter = new RaptorInterpreter({
+const interpreter = new RapMacInterpreter({
   speedMs: 0,
   onConsoleOutput: (text) => outputLogs.push(text),
   onInputRequest: (prompt, varName, cb) => {
@@ -55,6 +55,6 @@ setTimeout(() => {
   console.log('✓ Headless flowchart execution test passed (art=2, prec=50, ivu=55.75)');
 
   console.log('\n================================================================');
-  console.log('ALL RAPTOR CORE ENGINE TESTS PASSED WITH 100% SUCCESS!');
+  console.log('ALL RAPMAC CORE ENGINE TESTS PASSED WITH 100% SUCCESS!');
   console.log('================================================================\n');
 }, 100);

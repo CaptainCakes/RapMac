@@ -1,17 +1,19 @@
 /**
- * RAPTOR Flowchart Core Engine
+ * RapMac Flowchart Core Engine
  * Headless AST interpreter, binary .rap parser, and expression evaluator.
  *
  * @license MIT
- * @author RAPTOR Team
+ * @author RapMac Team
  */
 
 'use strict';
 
 const {
+  RapMacInterpreter,
   RaptorInterpreter,
   isBuiltinProcedure,
   parseCallStatement,
+  RAPMAC_COLORS,
   RAPTOR_COLORS,
   COLOR_NAMES_MAP,
   BUILTIN_PROCEDURES_INFO
@@ -26,19 +28,23 @@ const {
 const { SAMPLES } = require('./samples');
 
 module.exports = {
-  // Interpreter & Execution Engine
-  RaptorInterpreter,
+  // Primary RapMac Engine Exports
+  RapMacInterpreter,
+  RAPMAC_COLORS,
   isBuiltinProcedure,
   parseCallStatement,
-  RAPTOR_COLORS,
   COLOR_NAMES_MAP,
   BUILTIN_PROCEDURES_INFO,
 
-  // Binary Parser & Serializer
+  // Binary Parser & Serializer for .rap files
   NrbfStreamParser,
   RapBinaryParser,
   RapBinarySerializer,
 
-  // Builtin Sample Flowcharts
-  SAMPLES
+  // Built-in Sample Flowcharts
+  SAMPLES,
+
+  // Backwards compatibility aliases
+  RaptorInterpreter,
+  RAPTOR_COLORS
 };
