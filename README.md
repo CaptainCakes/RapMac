@@ -34,24 +34,19 @@ If you want the visual desktop application with flowchart canvas editing, MacBoo
      xattr -cr /Applications/RapMac.app
      ```
 
-### 📦 Built-in Plugins & Adding Custom Plugins
+### 📦 Optional Plugins & Adding Custom Plugins
 
-The installer comes with pre-packaged plugins inside the `Plugins/` folder:
+RapMac is distributed clean with no plugins bundled inside the application itself. Optional plugins are provided in the standalone **`Plugins/`** folder included alongside the app in the DMG and ZIP packages:
 
 - **Google Gemini AI Assistant (`gemini_ai_assistant.js`)**: 1-click error diagnosis and repair, flowchart generation from English descriptions, algorithmic trace explanations, and algorithm tutor (`Cmd + Shift + G`).
 - **MacBook Pro Touch Bar (`touchbar_macbook.js`)**: Dynamic hardware execution controls, canvas modes, and interactive variable scrubbers.
+- **Starter Plugin Template (`dummy_plugin.js.example`)**: Example template demonstrating custom functions, procedures, buttons, and hooks.
 
-#### Where Plugins Live
-When you launch the app, bundled plugins are automatically copied and loaded from your user plugins directory:
-```
-~/Library/Application Support/RapMac/plugins/
-```
-
-#### How to Add New Plugins to RapMac
-1. Open RapMac and navigate to the macOS menu bar at the top.
-2. Click **Plugins** → **Open Plugins Folder** (this opens your `plugins/` folder in Finder).
-3. You will find a placeholder template (`dummy_plugin.js.example`) with examples for custom functions, subroutines, buttons, and hooks. Copy and rename it to `my_plugin.js` (must end in `.js`), add your logic, and save.
-4. Click **Plugins** → **Reload Plugins** (or press `Cmd + Shift + P` and choose **Reload Plugins**).
+#### How to Install Plugins in RapMac
+1. Open RapMac and navigate to the top menu bar.
+2. Click **Plugins** → **Open Plugins Folder** (this opens `~/Library/Application Support/RapMac/plugins/` in Finder).
+3. Drag any `.js` file from the **`Plugins/`** folder into your RapMac plugins folder.
+4. In RapMac, click **Plugins** → **Reload Plugins** (or press `Cmd + Shift + P` and select **Reload Plugins**).
 
 Your custom functions (usable in Assignment, Decision, and Loop blocks), custom Call block procedures, and toolbar buttons will become available immediately!
 
